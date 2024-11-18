@@ -1,5 +1,9 @@
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 
-# Press the green button in the gutter to run the script.
+def find(char: str) -> int:
+    return ALPHABET.index(char)
+
+
 if __name__ == '__main__':
-    print("heyo")
+    print(find("A"))
