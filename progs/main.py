@@ -79,6 +79,4 @@ def inverse_modulaire(a: int) -> int:
 
 
 if __name__ == '__main__':
-    # print(vigenere())
-    # 3 est premier avec 52
     print(cesar_affine())
