@@ -83,8 +83,8 @@ if __name__ == '__main__':
     msg = "Le monde du fun et du rire !"
     print(f"reverse() prend en paramètre un message, prenons msg = '{msg}'\nreverse() va alors renvoyer : {reverse(msg)}")
     print("\n##### Présentation fonction cesar_simple #####")
-    print(f"Le message renvoyée est : {cesar_simple()}")
+    print(f"Le message renvoyé est : {cesar_simple()}")
     print("\n##### Présentation fonction vigenere #####")
-    print(f"Le message renvoyée est : {vigenere()}")
+    print(f"Le message renvoyé est : {vigenere()}")
     print("\n##### Présentation fonction cesar_affine #####")
-    print(f"Le message renvoyée est : {cesar_affine()}")
+    print(f"Le message renvoyé est : {cesar_affine()}")
