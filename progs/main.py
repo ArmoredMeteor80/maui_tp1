@@ -17,8 +17,8 @@ def cesar_simple() -> str:
     """Renvoie le message chiffré selon la méthode de César simple"""
     # Chiffrement ou déchiffrement ?
     mode = int(input("Quel mode, chiffrement (1) ou déchiffrement (2) : "))
-    b_key = int(input(f"Clé de {"chiffrement" if mode == 1 else "déchiffrement"} : "))
-    msg = input(f"Message à {"chiffrer" if mode == 1 else "déchiffrer"} : ")
+    b_key = int(input(f"Clé de {'chiffrement' if mode == 1 else 'déchiffrement'} : "))
+    msg = input(f"Message à {'chiffrer' if mode == 1 else 'déchiffrer'} : ")
     msg_y = ""
     for char in msg:
         msg_y += ALPHABET[(find(char) + b_key) % LEN_ALPHA] if mode == 1 else ALPHABET[(find(char) - b_key) % LEN_ALPHA]
@@ -30,8 +30,8 @@ def vigenere() -> str:
     # Chiffrement ou déchiffrement ?
     mode = int(input("Quel mode, chiffrement (1) ou déchiffrement (2) : "))
     # Cette fois la clé est une chaine de caractères
-    b_key = input(f"Clé de {"chiffrement" if mode == 1 else "déchiffrement"} : ")
-    msg = input(f"Message à {"chiffrer" if mode == 1 else "déchiffrer"} : ")
+    b_key = input(f"Clé de {'chiffrement' if mode == 1 else 'déchiffrement'} : ")
+    msg = input(f"Message à {'chiffrer' if mode == 1 else 'déchiffrer'} : ")
     msg_y = ""
     index_b_key = 0
     for char in msg:
@@ -45,15 +45,15 @@ def cesar_affine() -> str:
     """Renvoie le message chiffré selon la méthode de César affine"""
     # Chiffrement ou déchiffrement ?
     mode = int(input("Quel mode, chiffrement (1) ou déchiffrement (2) : "))
-    a_key = int(input(f"Clé de {"chiffrement" if mode == 1 else "déchiffrement"} a : "))
+    a_key = int(input(f"Clé de {'chiffrement' if mode == 1 else 'déchiffrement'} a : "))
 
     # Tant que le pgcd(a, longueur_alphabet) != 1 on redemande
     while gcd(a_key, LEN_ALPHA) != 1:
         print(f"Le pgcd de la clé a : {a_key} avec la longueur de l'alphabet : {LEN_ALPHA} ne vaut pas 1, saisir une nouvelle clé a : ")
-        a_key = int(input(f"Clé de {"chiffrement" if mode == 1 else "déchiffrement"} a : "))
+        a_key = int(input(f"Clé de {'chiffrement' if mode == 1 else 'déchiffrement'} a : "))
 
-    b_key = int(input(f"Clé de {"chiffrement" if mode == 1 else "déchiffrement"} b : "))
-    msg = input(f"Message à {"chiffrer" if mode == 1 else "déchiffrer"} : ")
+    b_key = int(input(f"Clé de {'chiffrement' if mode == 1 else 'déchiffrement'} b : "))
+    msg = input(f"Message à {'chiffrer' if mode == 1 else 'déchiffrer'} : ")
     msg_y = ""
     for char in msg:
         msg_y += ALPHABET[(a_key*find(char) + b_key) % LEN_ALPHA] if mode == 1 else ALPHABET[inverse_modulaire(a_key)*(find(char) - b_key) % LEN_ALPHA]
