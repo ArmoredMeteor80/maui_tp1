@@ -78,6 +78,7 @@ def vigenere() -> str:
     b_key = ""
     while not est_valide_msg(b_key):
         b_key = input(f"Clé de {'chiffrement' if mode == 1 else 'déchiffrement'} : ")
+        print("Clé non conforme, réessayez.") if not est_valide_msg(b_key) else print("⸻⸻⸻ Clé selectionnée ⸻⸻⸻")
     msg = demander_msg(mode)
     msg_y = ""
     index_b_key = 0
