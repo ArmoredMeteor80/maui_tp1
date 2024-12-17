@@ -9,7 +9,23 @@ Afin d'implémenter les diverses méthodes, nous avons définis deux constantes,
 
 -> Prend en paramètre un caractère et renvoie la position de celui-ci dans l'alphabet.
 
-- `reverse(msg: str) -> str:`
+- `est-valide_msg(msg: str) -> bool`
+
+-> Prend en paramètre un message et vérifie son intégrité, c'est-à-dire, si le contenu du message est bien dans l'alphabet et non vide.
+
+- `demander_msg(mode: int) -> str`
+
+-> Procédure de demande d'un message réutilisée à de nombreuses reprises, elle prend en paramètre le mode et renvoie un message valide.
+
+- `demander_mode() -> int`
+
+-> Procédure de demande du mode, vérifie l'intégrité du format du mode, soit 1 pour le chiffrement soit 2 pour le déchiffrement et renvoie le mode.
+
+- `demander_cle_int(mode: int) -> int`
+
+-> Procédure de demande d'un clé entière, utilisée pour toutes les fonctions de chiffrement/déchiffrement sauf vigenere car la clé est une chaîne de caractère. Renvoie une clé valide sous forme d'entier.
+
+- `reverse(msg: str) -> str`
 
 -> Prend en paramètre un message et renvoie son chiffrement par son écriture à l'envers.
 Nous avons pris l'initiative d'utiliser le slicing en python nous permettant de ne pas utiliser de boucle.
