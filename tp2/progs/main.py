@@ -189,9 +189,9 @@ if __name__ == '__main__':
     print(chiffrement_msg_rsa("OUI", e, n))
     print(dechiffrement_msg_rsa([105, 578], d, n))
 
-    print(f"a) le chiffrement de METHODE est : {chiffrement_msg_rsa("METHODE", e, n)}")
+    print(f"a) le chiffrement de METHODE est : {chiffrement_msg_rsa('METHODE', e, n)}")
 
     print(f"b) le déchiffrement du cryptogramme donne : {dechiffrement_msg_rsa([263, 115, 613, 10], d, n)}")
-    print(f"c) le chiffrement de AVEZVOUSBIENREUSSI est : {chiffrement_msg_rsa("AVEZVOUSBIENREUSSI", e, n)}")
+    print(f"c) le chiffrement de AVEZVOUSBIENREUSSI est : {chiffrement_msg_rsa('AVEZVOUSBIENREUSSI', e, n)}")
     print(f"d) le déchiffrement du cryptogramme donne : {dechiffrement_msg_rsa([1019, 35, 567, 36, 384, 703, 99, 59], d, n)}")
     print(f"e) le déchiffrement du cryptogramme donne : {dechiffrement_msg_rsa([553, 813], d, n)}")
