@@ -115,6 +115,7 @@ def premier_pq(n: int) -> tuple:
 
 
 if __name__ == '__main__':
+    print("⸻⸻⸻⸻⸻⸻ SAD ⸻⸻⸻⸻⸻⸻")
     # Ex 1
     print("⸻⸻⸻ Ex 1 ⸻⸻⸻")
     A = [93, 660, 1479, 3218, 6602, 13594]
@@ -155,7 +156,7 @@ if __name__ == '__main__':
     print(f"Pour le message chiffré 232680541 : {dechiffrer_sad(232680541, A, D, N)}")
 
     print()
-    print("⸻⸻⸻ RSA ⸻⸻⸻")
+    print("⸻⸻⸻⸻⸻⸻ RSA ⸻⸻⸻⸻⸻⸻")
     print("⸻⸻⸻ Ex 1 ⸻⸻⸻")
     c, d, n, e = 17, 7, 391, 151
     print(f"1) nombre obtenu : {dechiffrer_rsa(c, d, n)}")
