@@ -1,5 +1,12 @@
 from math import *
 
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+LEN_ALPHA = len(ALPHABET)
+
+
+def find(char: str) -> int:
+    """Renvoie le code entier d'un caractère dans l'alphabet"""
+    return ALPHABET.index(char)
 
 def inverse_modulaire(a: int, n: int) -> int:
     """Renvoie l'inverse modulaire de a avec n le module"""
@@ -22,3 +29,13 @@ def inverse_modulaire(a: int, n: int) -> int:
 def est_premier_entre_eux(a: int, b: int) -> bool:
     """Renvoie si a et b sont premiers entre eux"""
     return gcd(a, b) == 1
+
+
+def est_premier(n: int) -> bool:
+    """Revnoie si n est premier"""
+    if n > 1:
+        for i in range(2, n):
+            if (n % i) == 0:
+                return False
+        return True
+    return False

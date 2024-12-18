@@ -66,6 +66,54 @@ def chiffrer_sad(msg: str, b: list, n: int) -> int:
     return int(msg_chiffre)
 
 
+# partie RSA
+def dechiffrer_rsa(c: int, d: int, n: int) -> int:
+    """Renvoie le message déchiffré c' avec c le message chiffré, d la clé privée, et n = p*q """
+    return (c ** d) % n
+
+
+def chiffrer_rsa(m: int, e: int, n: int) -> int or ValueError:
+    """Chiffre le message m à partir de e et n"""
+    if m < n:
+        return (m ** e) % n
+    return ValueError("Erreur, m est supérieur à n")
+
+
+def chiffrement_msg_rsa(msg: str, e: int, n: int) -> list:
+    """Chiffre un message à la manière de l'exercice 3 du TP"""
+    msg_chiffre = ""
+    lst_cryptogrammes = []
+    for char in msg:
+        msg_chiffre += "0" + str(find(char)) if find(char) < 10 else str(find(char))
+    for i in range(0, len(msg_chiffre), 3):
+        paquet = msg_chiffre[i:i + 3]
+        lst_cryptogrammes.append(chiffrer_rsa(int(paquet), e, n))
+    return lst_cryptogrammes
+
+
+def dechiffrement_msg_rsa(lst_cryptogrammes: list, d: int, n: int) -> str:
+    """Déchiffre un message à la manière de l'exercice 3 du TP"""
+    msg_dechiffre = ""
+    msg_dechiffre_lettres = ""
+    for cryptogramme in lst_cryptogrammes:
+        paquet = str(dechiffrer_rsa(cryptogramme, d, n))
+        msg_dechiffre += paquet if len(paquet) == 3 else "0" + paquet if len(paquet) == 2 else "0" + paquet
+    for i in range(0, len(msg_dechiffre), 2):
+        paquet = msg_dechiffre[i:i + 2]
+        msg_dechiffre_lettres += ALPHABET[int(paquet)]
+    return msg_dechiffre_lettres
+
+
+def premier_pq(n: int) -> tuple:
+    """Renvoie les deux premiers p et q valides où p*q = n """
+    for i in range(2, n // 2):
+        if est_premier(i):
+            p = n // i
+            if est_premier(p):
+                return p, i
+    return 0, 0
+
+
 if __name__ == '__main__':
     # Ex 1
     print("⸻⸻⸻ Ex 1 ⸻⸻⸻")
@@ -107,4 +155,43 @@ if __name__ == '__main__':
     print(f"Pour le message chiffré 232680541 : {dechiffrer_sad(232680541, A, D, N)}")
 
     print()
+    print("⸻⸻⸻ RSA ⸻⸻⸻")
+    print("⸻⸻⸻ Ex 1 ⸻⸻⸻")
+    c, d, n, e = 17, 7, 391, 151
+    print(f"1) nombre obtenu : {dechiffrer_rsa(c, d, n)}")
+    p, q = premier_pq(n)
+    print(f"2) p = {p} et q = {q}")
+    phi = (p - 1) * (q - 1)
+    print(f"phi = {phi}")
+    print(f"3) D = inverse modulaire de E mod phi soit ici = {inverse_modulaire(e, phi)}")
+    print("⸻⸻⸻ Ex 2 ⸻⸻⸻")
+    n, e, d = 221, 11, 35
+    m = 112
+    c = 78
+    print(f"1) a) le chiffrement de m = 112 renvoie : {chiffrer_rsa(m, e, n)}")
+    print(f"b) le déchiffrement de c = 78 renvoie : {dechiffrer_rsa(c, d, n)}")
+    p, q = 53, 71
+    n = p * q
+    phi = (p - 1) * (q - 1)
+    print(f"2) a) n vaut {n} et phi vaut {phi}")
+    e = 307
+    print(f"b) e est acceptable si E < phi : {e < phi} et pgcd(phi, e) = 1 : {gcd(phi, e) == 1} donc ici il l'est")
+    print(f"D = inverse modulaire de E mod phi soit ici = {inverse_modulaire(e, phi)}")
+    print(f"c) Clé publique : E = {e}, N = {n}")
+    print(f"Clé privée : D = {d}")
+    print(
+        f"d) Il faut se débarasser des éléments restants afin que nul ne puisse recréer notre clé privée car ce sont ses éléments qui ont permis de la définir")
+    print("⸻⸻⸻ Ex 3 ⸻⸻⸻")
+    e, n = 257, 1073
+    d = 353
+    print(chiffrement_msg_rsa("RSA", e, n))
+    print(dechiffrement_msg_rsa([859, 452], d, n))
+    print(chiffrement_msg_rsa("OUI", e, n))
+    print(dechiffrement_msg_rsa([105, 578], d, n))
 
+    print(f"a) le chiffrement de METHODE est : {chiffrement_msg_rsa("METHODE", e, n)}")
+
+    print(f"b) le déchiffrement du cryptogramme donne : {dechiffrement_msg_rsa([263, 115, 613, 10], d, n)}")
+    print(f"c) le chiffrement de AVEZVOUSBIENREUSSI est : {chiffrement_msg_rsa("AVEZVOUSBIENREUSSI", e, n)}")
+    print(f"d) le déchiffrement du cryptogramme donne : {dechiffrement_msg_rsa([1019, 35, 567, 36, 384, 703, 99, 59], d, n)}")
+    print(f"e) le déchiffrement du cryptogramme donne : {dechiffrement_msg_rsa([553, 813], d, n)}")
