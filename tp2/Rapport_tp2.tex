@@ -22,7 +22,7 @@
 
 \title{TP2: Sac à Dos; RSA}
 \author{Mathieu Tuloup Mohamed Saidane}
-\date{\today}
+\date{}
 
 \begin{document}
 \maketitle
@@ -53,6 +53,46 @@
     
     
 \end{enumerate}
+\section{Methode RSA et notations}
+\subsection{Exercie 1}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+    Alice doit faire M'= $C^{D} mod$ N = 204
+    \end{enumerate}
+    \item \begin{enumerate}
+    p=17 et q=23 car 17 $\times$ 23 = 391 et p et q sont premiers. $\phi(N)= (p-1) \times (q-1) = 352$
+    \end{enumerate}
+    \item \begin{enumerate}
+    $D=E^{-1} mod$ $\phi$. On a trouvé l'inverse modulaire grâce à l'algorithme d'Euclide étendu et les valeurs de E et $\phi$. On retrouve D=7.  
+    \end{enumerate}
+\end{enumerate}
+\subsection{Exercice 2}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+    \item Pour chiffrer le message M il faut calculer le cryptogramme  $C=M^{E}$ mod N= 122.
+    \item Le message déchiffré est 65. 
+    \end{enumerate}
+    \item \begin{enumerate}
+    \item p $\times$ q = 3763. $\phi(N)$= 3640
+    \item E = 307< $\phi$ = 3640 et pgcd(E,$\phi$)=1. Donc E est bien acceptable. $E^{-1}$ mod N = D soit ici 83.
+    \item Clé publique : E = 307 et N = 3763. Clé privé: D = 35.
+    \item Il faut se débarrasser des éléments restants afin que nul personne puisse recréer notre clé privé car ce sont des éléménts qui ont permis de la définir.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Exercice 3}
+\begin{enumerate}
+    \item \begin{enumerate}
+    \item Le cryptogramme de METHODE est : 859; 452
+    \item Le message du cryptogramme 256;115;613;10 est : CRYPTO
+    \item le cryptogramme de AVEZVOUSBIENREUSSI est : 32; 916; 546; 983; 403; 1001; 709; 857; 716; 1034; 567; 919
+    \item le message du cryptogramme 1019;35;567;36;384;703;99;59 est : SANSPROBLEME
+    \item Le message du cryptogramme 533;813 est : FIN
+    \end{enumerate}
+\end{enumerate}
+
 
 
 
