@@ -179,8 +179,7 @@ if __name__ == '__main__':
     print(f"D = inverse modulaire de E mod phi soit ici = {inverse_modulaire(e, phi)}")
     print(f"c) Clé publique : E = {e}, N = {n}")
     print(f"Clé privée : D = {d}")
-    print(
-        f"d) Il faut se débarasser des éléments restants afin que nul ne puisse recréer notre clé privée car ce sont ses éléments qui ont permis de la définir")
+    print(f"d) Il faut se débarasser des éléments restants afin que nul ne puisse recréer notre clé privée car ce sont ses éléments qui ont permis de la définir")
     print("⸻⸻⸻ Ex 3 ⸻⸻⸻")
     e, n = 257, 1073
     d = 353
